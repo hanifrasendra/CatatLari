@@ -6,17 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.catatanlari.databinding.FragmentBerandaBinding
+import com.example.catatanlari.databinding.FragmentLoginBinding
 
 
 /**
  * A simple [Fragment] subclass.
- * Use the [BerandaFragment.newInstance] factory method to
+ * Use the [LoginFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class BerandaFragment : Fragment() {
 
-    private lateinit var berandaBinding: FragmentBerandaBinding
+class LoginFragment : Fragment() {
+
+    private lateinit var loginFragment : FragmentLoginBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,21 +30,26 @@ class BerandaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        berandaBinding = FragmentBerandaBinding.inflate(
+        loginFragment = FragmentLoginBinding.inflate(
             inflater,
             container,
             false
         )
-        return berandaBinding.root
-
+        return loginFragment.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        berandaBinding.floatinAddButton.setOnClickListener {
+        loginFragment.Registerbtn.setOnClickListener {
             findNavController().navigate(
-                BerandaFragmentDirections.actionBerandaFragmentToCatatlariFragment()
+                LoginFragmentDirections.actionLoginFragmentToRegistrasiFragment()
+            )
+        }
+
+        loginFragment.loginbutton.setOnClickListener {
+            findNavController().navigate(
+                LoginFragmentDirections.actionLoginFragmentToBerandaFragment()
             )
         }
     }
