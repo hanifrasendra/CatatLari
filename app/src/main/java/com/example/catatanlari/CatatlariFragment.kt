@@ -53,6 +53,8 @@ class CatatlariFragment : Fragment() {
 
             if(jadwal.isEmpty() || jarak.isEmpty() || waktu.isEmpty()) {
                 Toast.makeText(requireContext(), "Semua field harus diisi!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Data berhasil disimpan!", Toast.LENGTH_SHORT).show()
             }
 
             val inputCatatLari = catatLari(

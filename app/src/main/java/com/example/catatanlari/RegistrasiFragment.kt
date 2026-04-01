@@ -60,6 +60,8 @@ class RegistrasiFragment : Fragment() {
             //validasi inputan
             if (namaLengkap.isEmpty() || gender.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(requireContext(), "Semua field harus diisi!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Registrasi berhasil!", Toast.LENGTH_SHORT).show()
             }
 
             val register = RegisterUser(
