@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_menu"
+    app:startDestination="@id/welcomeFragment">
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.catatanlari.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_registrasiFragment"
+            app:destination="@id/registrasiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.catatanlari.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrasiFragment"
+            app:destination="@id/registrasiFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_berandaFragment"
+            app:destination="@id/berandaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrasiFragment"
+        android:name="com.example.catatanlari.RegistrasiFragment"
+        android:label="fragment_registrasi"
+        tools:layout="@layout/fragment_registrasi" >
+        <action
+            android:id="@+id/action_registrasiFragment_to_berandaFragment"
+            app:destination="@id/berandaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/berandaFragment"
+        android:name="com.example.catatanlari.BerandaFragment"
+        android:label="fragment_beranda"
+        tools:layout="@layout/fragment_beranda" >
+        <action
+            android:id="@+id/action_berandaFragment_to_catatlariFragment"
+            app:destination="@id/catatlariFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/catatlariFragment"
+        android:name="com.example.catatanlari.CatatlariFragment"
+        android:label="fragment_catatlari"
+        tools:layout="@layout/fragment_catatlari" />
+</navigation>
