@@ -42,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:inputType="date"
             android:clickable="true"
             android:textColor="#555555" />
     </com.google.android.material.textfield.TextInputLayout>

@@ -62,6 +62,9 @@ class RegistrasiFragment : Fragment() {
                 Toast.makeText(requireContext(), "Semua field harus diisi!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(requireContext(), "Registrasi berhasil!", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(
+                    RegistrasiFragmentDirections.actionRegistrasiFragmentToBerandaFragment()
+                )
             }
 
             val register = RegisterUser(
