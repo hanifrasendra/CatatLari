@@ -117,7 +117,6 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Wave background removed because drawable/wave1 is missing -->
-    <!--
     <ImageView
         android:id="@+id/wave_bg"
         android:layout_width="match_parent"
@@ -125,6 +124,5 @@
         android:scaleType="fitXY"
         android:src="@drawable/wave1"
         app:layout_constraintBottom_toBottomOf="parent"/>
-    -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
