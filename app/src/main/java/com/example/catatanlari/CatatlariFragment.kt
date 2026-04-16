@@ -19,7 +19,7 @@ class CatatlariFragment : Fragment() {
 
     private lateinit var catatlariBinding: FragmentCatatlariBinding
     private lateinit var adapter: CatatLariAdapter
-    private val listData = ArrayList<catatLari>()
+    private val dataList = mutableListOf<catatLari>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +32,10 @@ class CatatlariFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupRecyclerView()
+        // Setup RecyclerView
+        adapter = CatatLariAdapter(dataList)
+        catatlariBinding.rvCatatLari.layoutManager = LinearLayoutManager(requireContext())
+        catatlariBinding.rvCatatLari.adapter = adapter
 
         catatlariBinding.btnSimpan.setOnClickListener {
             val jadwal = catatlariBinding.etDate.text.toString()
@@ -48,9 +51,8 @@ class CatatlariFragment : Fragment() {
                     waktu = waktu
                 )
                 adapter.addData(inputCatatLari)
-                catatlariBinding.rvHistory.scrollToPosition(0)
                 
-                // Clear input
+                // Clear inputs
                 catatlariBinding.etDate.text?.clear()
                 catatlariBinding.etDistance.text?.clear()
                 catatlariBinding.etTime.text?.clear()
@@ -58,11 +60,5 @@ class CatatlariFragment : Fragment() {
                 Toast.makeText(requireContext(), "Data berhasil disimpan!", Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    private fun setupRecyclerView() {
-        adapter = CatatLariAdapter(listData)
-        catatlariBinding.rvHistory.layoutManager = LinearLayoutManager(requireContext())
-        catatlariBinding.rvHistory.adapter = adapter
     }
 }

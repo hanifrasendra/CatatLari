@@ -8,51 +8,39 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.catatanlari.databinding.FragmentLoginBinding
 
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-
 class LoginFragment : Fragment() {
 
-    private lateinit var loginFragment : FragmentLoginBinding
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        loginFragment = FragmentLoginBinding.inflate(
-            inflater,
-            container,
-            false
-        )
-        return loginFragment.root
+    ): View {
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loginFragment.Registerbtn.setOnClickListener {
+        binding.Registerbtn.setOnClickListener {
             findNavController().navigate(
                 LoginFragmentDirections.actionLoginFragmentToRegistrasiFragment()
             )
         }
 
-        loginFragment.loginbutton.setOnClickListener {
-            findNavController().navigate(
-                LoginFragmentDirections.actionLoginFragmentToBerandaFragment()
+        binding.loginbutton.setOnClickListener {
+            val email = binding.etEmail.text.toString()
+            val action = LoginFragmentDirections.actionLoginFragmentToBerandaFragment(
+                userEmail = if (email.isNotEmpty()) email else "User"
             )
+            findNavController().navigate(action)
         }
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
